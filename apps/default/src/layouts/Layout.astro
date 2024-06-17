@@ -15,6 +15,19 @@ import "@fontsource-variable/inter";
 
 // Supports weights 100-800
 import "@fontsource-variable/sora";
+
+import "~/styles/global.css";
+
+import Footer from "~/components/Footer.astro";
+
+import { SEO } from "astro-seo";
+import type { Props as AstroSEOProps } from "astro-seo";
+
+import { site } from "~/config";
+
+interface Props extends AstroSEOProps {}
+
+const { title, description, ...props } = Astro.props;
 ---
 
 <html lang="en">
@@ -23,11 +36,18 @@ import "@fontsource-variable/sora";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <SEO
+      title={title}
+      titleDefault={site.title}
+      titleTemplate={`%s - ${site.title}`}
+      description={description || site.description}
+      {...props}
+    />
   </head>
-  <body>
-    <main>
+  <body class="flex flex-col min-h-full">
+    <main class="flex-1">
       <slot />
     </main>
+    <Footer />
   </body>
 </html>
