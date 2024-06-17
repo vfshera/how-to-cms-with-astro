@@ -1,8 +1,14 @@
+/** @type {import('tailwindcss/plugin')} */
+import plugin from "tailwindcss/plugin";
+
 /** @type {import('tailwindcss/defaultTheme')} */
 import dt from "tailwindcss/defaultTheme";
 
 /** @type {import('tailwindcss').Config} */
 export default {
+  corePlugins: {
+    container: false,
+  },
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
@@ -36,5 +42,18 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addComponents }) => {
+      addComponents({
+        ".container": {
+          width: "100%",
+          marginLeft: "auto",
+          marginRight: "auto",
+          "@screen 2xl": {
+            maxWidth: "1513px",
+          },
+        },
+      });
+    }),
+  ],
 };
