@@ -1,0 +1,11 @@
+{
+  "name": "astro-realty",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "pnpm --filter=default dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}
