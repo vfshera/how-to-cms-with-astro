@@ -11,4 +11,10 @@ export const site = {
     phoneNumbers: ["+333-3-666999", "+999-6-333396"],
     email: "info@yourinfo.com",
   },
+  socials: {
+    twitter: "#",
+    facebook: "#",
+    linkedin: "#",
+    youtube: "#",
+  },
 };
