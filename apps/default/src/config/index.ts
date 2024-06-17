@@ -1,5 +1,6 @@
 export const site = {
   title: "Realty",
+  description: "",
   address: {
     street: "123 Main Street",
     city: "Denver",
