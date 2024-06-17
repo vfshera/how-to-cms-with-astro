@@ -1,0 +1,99 @@
+---
+import hero from "~/assets/hero.jpg";
+
+type Option = { title: string; value: string } | string;
+const searchFilters: {
+  title: string;
+  name: string;
+  options: Option[];
+}[] = [
+  {
+    title: "Buy House",
+    name: "buy-house",
+    options: [],
+  },
+  {
+    title: "Category",
+    name: "category",
+    options: [],
+  },
+  {
+    title: "Location",
+    name: "location",
+    options: [],
+  },
+];
+
+function resolveOptions(opt: Option) {
+  if (typeof opt === "string") {
+    return { title: opt, value: opt };
+  }
+
+  return opt;
+}
+---
+
+<div
+  class="pt-[400px] pb-[280px] bg-brand-dark-1 bg-no-repeat bg-cover bg-center relative isolate"
+  style={{ backgroundImage: `url(${hero.src})` }}
+>
+  <div class="flex flex-col items-center">
+    <p class="uppercase font-sora text-base/5 text-white">
+      Welcome to one of the best real estate agency
+    </p>
+    <h1
+      class="font-sora font-semibold text-[5rem]/[1.2] tracking-[2%] text-white text-center"
+    >
+      Discover and Own Your <br />
+      <span class="text-brand-green-2"> Perfect Home Today!</span>
+    </h1>
+
+    <div
+      class="mt-9 bg-white rounded-[150px] p-3 flex items-center max-w-[1072px] w-full"
+    >
+      <div class="flex items-center flex-1">
+        {
+          searchFilters.map((filter, index) => (
+            <>
+              {index > 0 && <span class="h-6 w-px bg-black/15 mx-6" />}
+
+              <div>
+                <select
+                  name={filter.name}
+                  class="bg-transparent p-2.5 pl-3.5 text-brand-gray-1 w-[228px]"
+                >
+                  <option value="">{filter.title}</option>
+                  {filter.options.map(resolveOptions).map((opt) => (
+                    <option value={opt?.value}>opt.title</option>
+                  ))}
+                </select>
+              </div>
+            </>
+          ))
+        }
+      </div>
+      <button
+        type="button"
+        class="max-w-[228px] w-full flex items-center gap-2.5 justify-center bg-brand-green-2 text-brand-green-1 rounded-[50px] py-[17px]"
+      >
+        <svg
+          class="w-[19px] h-auto"
+          viewBox="0 0 19 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16.7219 15.1531L13.3828 11.8125C14.384 10.5079 14.8514 8.87121 14.6903 7.23458C14.5291 5.59795 13.7515 4.08389 12.515 2.99955C11.2786 1.9152 9.67604 1.34177 8.03238 1.39556C6.38872 1.44935 4.82705 2.12635 3.66419 3.28922C2.50132 4.45209 1.82432 6.01375 1.77053 7.65741C1.71674 9.30108 2.29017 10.9037 3.37452 12.1401C4.45886 13.3765 5.97292 14.1541 7.60955 14.3153C9.24618 14.4764 10.8828 14.009 12.1875 13.0078L15.5294 16.3505C15.6079 16.429 15.7011 16.4912 15.8037 16.5337C15.9062 16.5762 16.0161 16.5981 16.1271 16.5981C16.2381 16.5981 16.348 16.5762 16.4506 16.5337C16.5531 16.4912 16.6463 16.429 16.7248 16.3505C16.8032 16.272 16.8655 16.1788 16.908 16.0763C16.9505 15.9737 16.9723 15.8638 16.9723 15.7528C16.9723 15.6418 16.9505 15.5319 16.908 15.4294C16.8655 15.3268 16.8032 15.2337 16.7248 15.1552L16.7219 15.1531ZM3.46875 7.87503C3.46875 6.92938 3.74916 6.00498 4.27453 5.21871C4.7999 4.43243 5.54663 3.81961 6.42029 3.45773C7.29395 3.09585 8.2553 3.00116 9.18277 3.18565C10.1102 3.37013 10.9622 3.8255 11.6308 4.49417C12.2995 5.16284 12.7549 6.01478 12.9394 6.94225C13.1239 7.86972 13.0292 8.83107 12.6673 9.70473C12.3054 10.5784 11.6926 11.3251 10.9063 11.8505C10.12 12.3759 9.19564 12.6563 8.24999 12.6563C6.98233 12.655 5.76696 12.1508 4.87058 11.2544C3.9742 10.3581 3.47005 9.14269 3.46875 7.87503Z"
+            fill="#006C2E"></path>
+        </svg>
+        <span>Search</span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="absolute inset-0 -z-[1] bg-gradient-to-b from-transparent to-black opacity-20"
+  >
+  </div>
+  <div class="absolute inset-0 -z-[1] bg-[#0e1620]/20"></div>
+</div>
