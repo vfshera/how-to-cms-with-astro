@@ -1,0 +1,212 @@
+---
+import Logo from "./Logo.astro";
+import { site } from "~/config";
+
+const footerLinks: {
+  title: string;
+  links: { title: string; href: string }[];
+}[] = [
+  {
+    title: "Quick Links",
+    links: [
+      {
+        title: "Home",
+        href: "/",
+      },
+      {
+        title: "About Us",
+        href: "#about",
+      },
+      {
+        title: "Blogs",
+        href: "#blogs",
+      },
+      {
+        title: "Contact Us",
+        href: "#contact",
+      },
+      {
+        title: "Privacy Policy",
+        href: "#privacy-policy",
+      },
+    ],
+  },
+  {
+    title: "Categories",
+    links: [
+      {
+        title: "Recently posted",
+        href: "#recently-posted",
+      },
+      {
+        title: "To Sell",
+        href: "#to-sell",
+      },
+      {
+        title: "To Purchase",
+        href: "#to-purchase",
+      },
+      {
+        title: "For Rental",
+        href: "#for-rental",
+      },
+    ],
+  },
+  {
+    title: "Help",
+    links: [
+      {
+        title: "Privacy",
+        href: "#privacy",
+      },
+      {
+        title: "Condition",
+        href: "#condition",
+      },
+      {
+        title: "Blog",
+        href: "#blog",
+      },
+      {
+        title: "FAQ",
+        href: "#faq",
+      },
+    ],
+  },
+];
+---
+
+<footer class="bg-brand-dark-1 pt-[10rem] pb-[70px] mt-auto">
+  <div class="container">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-[225px]">
+        <Logo />
+
+        <div class="max-w-[490px] font-sora text-lg/[26px] text-white">
+          <p>
+            Discover exceptional properties and expert real estate services
+            tailored to your needs. Whether buying, selling, or investing, find
+            your perfect.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3.5">
+        <a
+          href={site.socials.linkedin}
+          target="_blank"
+          class="bg-white/20 size-10 flex items-center justify-center rounded-full"
+        >
+          <svg
+            class="size-5"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M17.5 3.60294V16.3971C17.5 16.6896 17.3838 16.9701 17.177 17.177C16.9701 17.3838 16.6896 17.5 16.3971 17.5H3.60294C3.31042 17.5 3.02989 17.3838 2.82304 17.177C2.6162 16.9701 2.5 16.6896 2.5 16.3971V3.60294C2.5 3.31042 2.6162 3.02989 2.82304 2.82304C3.02989 2.6162 3.31042 2.5 3.60294 2.5H16.3971C16.6896 2.5 16.9701 2.6162 17.177 2.82304C17.3838 3.02989 17.5 3.31042 17.5 3.60294V3.60294ZM6.91176 8.23529H4.70588V15.2941H6.91176V8.23529ZM7.11029 5.80882C7.11146 5.64197 7.07974 5.47651 7.01696 5.32191C6.95418 5.16731 6.86156 5.02659 6.7444 4.90779C6.62723 4.78898 6.48781 4.69442 6.3341 4.6295C6.18038 4.56458 6.01539 4.53057 5.84853 4.52941H5.80882C5.4695 4.52941 5.14408 4.66421 4.90414 4.90414C4.66421 5.14408 4.52941 5.4695 4.52941 5.80882C4.52941 6.14814 4.66421 6.47357 4.90414 6.7135C5.14408 6.95344 5.4695 7.08824 5.80882 7.08824V7.08824C5.97569 7.09234 6.14173 7.06353 6.29746 7.00344C6.45319 6.94335 6.59555 6.85317 6.71642 6.73804C6.83728 6.62291 6.93427 6.4851 7.00186 6.33247C7.06944 6.17985 7.10629 6.0154 7.11029 5.84853V5.80882ZM15.2941 11.0059C15.2941 8.88382 13.9441 8.05882 12.6029 8.05882C12.1638 8.03684 11.7266 8.13037 11.3349 8.33009C10.9432 8.52981 10.6107 8.82874 10.3706 9.19706H10.3088V8.23529H8.23529V15.2941H10.4412V11.5397C10.4093 11.1552 10.5304 10.7736 10.7782 10.4779C11.026 10.1822 11.3805 9.99616 11.7647 9.96029H11.8485C12.55 9.96029 13.0706 10.4015 13.0706 11.5132V15.2941H15.2765L15.2941 11.0059Z"
+              fill="white"></path>
+          </svg>
+        </a>
+
+        <a
+          href={site.socials.youtube}
+          target="_blank"
+          class="bg-white/20 size-10 flex items-center justify-center rounded-full"
+        >
+          <svg
+            class="size-5"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M16.4934 4.5122C17.2101 4.70475 17.7771 5.27172 17.9696 5.98845C18.3227 7.29354 18.3334 10 18.3334 10C18.3334 10 18.3334 12.7172 17.9803 14.0116C17.7878 14.7283 17.2208 15.2952 16.5041 15.4878C15.2097 15.8408 10 15.8408 10 15.8408C10 15.8408 4.79035 15.8408 3.49596 15.4878C2.77922 15.2952 2.21226 14.7283 2.0197 14.0116C1.66669 12.7065 1.66669 10 1.66669 10C1.66669 10 1.66669 7.29354 2.00901 5.99915C2.20156 5.28241 2.76853 4.71545 3.48526 4.5229C4.77965 4.16987 9.98932 4.15918 9.98932 4.15918C9.98932 4.15918 15.199 4.15918 16.4934 4.5122ZM12.653 10L8.33121 12.5032V7.49679L12.653 10Z"
+              fill="white"></path>
+          </svg>
+        </a>
+
+        <a
+          href={site.socials.facebook}
+          target="_blank"
+          class="bg-white/20 size-10 flex items-center justify-center rounded-full"
+        >
+          <svg
+            class="size-5"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18.3334 10.0504C18.3334 5.41984 14.6028 1.6665 10 1.6665C5.39724 1.6665 1.66669 5.41984 1.66669 10.0504C1.66669 14.2359 4.71335 17.7043 8.6978 18.3332V12.4743H6.58224V10.0498H8.6978V8.20317C8.6978 6.10206 9.94169 4.94095 11.8456 4.94095C12.7567 4.94095 13.7111 5.10484 13.7111 5.10484V7.16817H12.6595C11.6245 7.16817 11.3022 7.81484 11.3022 8.47817V10.0504H13.6134L13.2439 12.4737H11.3022V18.3332C15.2867 17.7043 18.3334 14.2359 18.3334 10.0504Z"
+              fill="white"></path>
+          </svg>
+        </a>
+
+        <a
+          href={site.socials.twitter}
+          target="_blank"
+          class="bg-white/20 size-10 flex items-center justify-center rounded-full"
+        >
+          <svg
+            class="size-5"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M16.6271 6.59994C16.6372 6.74687 16.6372 6.8938 16.6372 7.04209C16.6372 11.5603 13.1976 16.7712 6.90807 16.7712V16.7685C5.05013 16.7712 3.23077 16.2391 1.66669 15.2356C1.93685 15.2681 2.20836 15.2843 2.48055 15.285C4.02027 15.2864 5.51597 14.7698 6.72729 13.8184C5.26409 13.7907 3.98099 12.8367 3.53276 11.4439C4.04532 11.5427 4.57345 11.5224 5.07653 11.385C3.4813 11.0627 2.33362 9.66109 2.33362 8.03335C2.33362 8.01846 2.33362 8.00424 2.33362 7.99002C2.80894 8.25476 3.34114 8.40169 3.88552 8.41794C2.38305 7.41381 1.91992 5.41503 2.82723 3.8523C4.5633 5.98853 7.12474 7.28719 9.87442 7.42464C9.59884 6.23702 9.97531 4.99252 10.8637 4.15767C12.2409 2.86306 14.4069 2.92942 15.7015 4.30595C16.4673 4.15496 17.2013 3.87396 17.8729 3.47583C17.6177 4.26736 17.0834 4.93971 16.3698 5.36696C17.0476 5.28706 17.7098 5.1056 18.3334 4.82867C17.8743 5.51659 17.296 6.11582 16.6271 6.59994Z"
+              fill="white"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-4 gap-[70px] mt-[50px] mb-[90px]">
+      <div class="font-sora text-white">
+        <p class="text-[26px]/8">Contact Us</p>
+        <hr class="mb-[22px] mt-5 border-0 h-px bg-white/10" />
+        <div class="flex flex-col text-base/7">
+          <p>
+            {site.address.street}{site.address.city}, {site.address.state}
+            {site.address.zip}
+          </p>
+          {
+            site.contact.phoneNumbers.map((phone) => (
+              <a href={`tel:${phone}`}>{phone}</a>
+            ))
+          }
+          <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>
+        </div>
+      </div>
+
+      {
+        footerLinks.map((item) => (
+          <div class="font-sora text-white">
+            <p class="text-[26px]/8">{item.title}</p>
+            <hr class="mb-[22px] mt-5 border-0 h-px bg-white/10" />
+            <div class="flex flex-col text-base/7">
+              {item.links.map((link) => (
+                <a href={link.href}>{link.title}</a>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div
+      class="flex items-center justify-between text-white font-sora text-base"
+    >
+      <p>© 2022 {site.title}. All rights reserved.</p>
+      <p>
+        Designed by <a
+          href="https://templatesjungle.com/downloads/realty-real-estate-free-figma-website-design-template"
+          target="_blank">TemplatesJungle</a
+        >
+      </p>
+    </div>
+  </div>
+</footer>
