@@ -1,0 +1,91 @@
+---
+import Logo from "./Logo.astro";
+
+type Link = {
+  title: string;
+  href: string;
+  links?: Link[];
+};
+
+const navlinks: Link[] = [
+  {
+    title: "Home",
+    href: "/",
+  },
+  {
+    title: "About Us",
+    href: "#about",
+  },
+  {
+    title: "Services",
+    href: "#services",
+    links: [
+      {
+        title: "Services 1",
+        href: "#services-1",
+      },
+      {
+        title: "Services 2",
+        href: "#services-2",
+      },
+    ],
+  },
+  {
+    title: "Buy",
+    href: "#buy",
+  },
+  {
+    title: "Rent",
+    href: "#rent",
+  },
+  {
+    title: "Sell",
+    href: "#sell",
+  },
+  {
+    title: "Contact Us",
+    href: "#contact",
+  },
+];
+---
+
+<header class="fixed top-0 left-0 w-full z-50 py-6 border-b border-white/50">
+  <div class="container flex justify-between items-center">
+    <Logo />
+
+    <nav>
+      <ul class="flex items-center gap-16">
+        {
+          navlinks.map((link) => (
+            <li>
+              {link.links ? (
+                <>
+                  <a href={"#"} class="font-sora text-base text-white">
+                    {link.title}
+                  </a>
+
+                  <ul class="hidden">
+                    {link.links.map((link) => (
+                      <li>
+                        <a
+                          href={link.href}
+                          class="font-sora text-base text-white"
+                        >
+                          {link.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              ) : (
+                <a href={link.href} class="font-sora text-base text-white">
+                  {link.title}
+                </a>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>

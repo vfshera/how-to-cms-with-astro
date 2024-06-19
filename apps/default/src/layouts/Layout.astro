@@ -24,6 +24,7 @@ import { SEO } from "astro-seo";
 import type { Props as AstroSEOProps } from "astro-seo";
 
 import { site } from "~/config";
+import Navbar from "~/components/Navbar.astro";
 
 interface Props extends AstroSEOProps {}
 
@@ -45,6 +46,7 @@ const { title, description, ...props } = Astro.props;
     />
   </head>
   <body class="flex flex-col min-h-full">
+    <Navbar />
     <main class="flex-1">
       <slot />
     </main>
