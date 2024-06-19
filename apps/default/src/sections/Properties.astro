@@ -1,0 +1,268 @@
+---
+type Property = {
+  photo: ImageMetadata;
+  title: string;
+  address: string;
+  price: number;
+  beds: number;
+  baths: number;
+  size: string;
+};
+
+import maple from "~/assets/properties/maple.png";
+import pine from "~/assets/properties/pine.png";
+import aspen from "~/assets/properties/aspen.png";
+import elm from "~/assets/properties/elm.png";
+import cedar from "~/assets/properties/cedar.png";
+import oak from "~/assets/properties/oak.png";
+import { Image } from "astro:assets";
+
+const properties: Property[] = [
+  {
+    photo: maple,
+    title: "Modern Family Home In Subur",
+    address: "456 Maple Street, Denver, CO 80202",
+    price: 5000,
+    beds: 4,
+    baths: 2,
+    size: "1203 Sqft.",
+  },
+  {
+    photo: pine,
+    title: "Luxury Estate With Private Pool",
+    address: "789 Pine Avenue, Denver, CO 80203",
+    price: 8800,
+    beds: 4,
+    baths: 2,
+    size: "1203 Sqft.",
+  },
+  {
+    photo: oak,
+    title: "Cozy Cottage Near",
+    address: "123 Oak Lane, Boulder, CO 80302",
+    price: 6000,
+    beds: 4,
+    baths: 2,
+    size: "1203 Sqft.",
+  },
+  {
+    photo: aspen,
+    title: "Chic Downtown City Views",
+    address: "101 Aspen Drive, Aspen, CO 81611",
+    price: 3000,
+    beds: 4,
+    baths: 2,
+    size: "1203 Sqft.",
+  },
+  {
+    photo: elm,
+    title: "Historic Victorian Home",
+    address: "789 Elm Street, Fort Collins, CO 80521",
+    price: 75000,
+    beds: 4,
+    baths: 2,
+    size: "1203 Sqft.",
+  },
+  {
+    photo: cedar,
+    title: "Contemporary Townhouse",
+    address: "345 Cedar Road, Colorado Springs, CO 80907",
+    price: 24000,
+    beds: 4,
+    baths: 2,
+    size: "1203 Sqft.",
+  },
+];
+---
+
+<section class="pb-[10rem] pt-[192px] relative">
+  <div class="container space-y-10">
+    <div class="flex items-center justify-between">
+      <h2 class="text-[50px]/[1.2] tracking-[2%]">
+        <span class="block text-brand-dark-2">Our Range Of Highly</span>
+        <span class="block text-brand-green-3">Desired Real Estate</span>
+      </h2>
+
+      <a
+        href="#"
+        class="py-4 pr-[30px] pl-8 text-base/7 text-brand-dark-2 border-brand-gray-2 group/link hover:border-black/60 transition-all duration-200 border rounded-full flex items-center"
+      >
+        More Properties <svg
+          class="size-9 group-hover/link:translate-x-1 transition-transform duration-200"
+          viewBox="0 0 35 35"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M25.8507 18.3606L19.7228 24.4885C19.626 24.5787 19.498 24.6278 19.3657 24.6254C19.2334 24.6231 19.1072 24.5695 19.0136 24.476C18.9201 24.3824 18.8665 24.2562 18.8641 24.1239C18.8618 23.9916 18.9109 23.8635 19.0011 23.7667L24.2566 18.5104H10.5107C10.3752 18.5104 10.2453 18.4566 10.1496 18.3609C10.0538 18.2651 10 18.1352 10 17.9998C10 17.8643 10.0538 17.7345 10.1496 17.6387C10.2453 17.5429 10.3752 17.4891 10.5107 17.4891H24.2566L19.0011 12.2328C18.9109 12.136 18.8618 12.008 18.8641 11.8757C18.8665 11.7434 18.9201 11.6172 19.0136 11.5236C19.1072 11.43 19.2334 11.3764 19.3657 11.3741C19.498 11.3718 19.626 11.4209 19.7228 11.5111L25.8507 17.6389C25.9463 17.7347 26 17.8644 26 17.9998C26 18.1351 25.9463 18.2649 25.8507 18.3606Z"
+            fill="#121212"></path>
+        </svg>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-x-[30px] gap-y-10">
+      {
+        properties.map((property) => (
+          <div>
+            <Image src={property.photo} alt={property.title} />
+            <div class="flex items-center gap-6 mt-[22px]">
+              <div class="flex items-center gap-1.5">
+                <svg
+                  class="size-[22px]"
+                  viewBox="0 0 22 22"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.125 4.125C2.99406 4.125 2.0625 5.05656 2.0625 6.1875V10.8494C1.64312 11.2283 1.375 11.7707 1.375 12.375V18.5625H4.8125V17.1875H17.1875V18.5625H20.625V12.375C20.625 11.7707 20.3569 11.2283 19.9375 10.8494V6.1875C19.9375 5.05656 19.0059 4.125 17.875 4.125H4.125ZM4.125 5.5H17.875C18.2566 5.5 18.5625 5.80594 18.5625 6.1875V10.3125H17.1875V9.625C17.1875 8.49406 16.2559 7.5625 15.125 7.5625H12.375C11.8484 7.5625 11.3651 7.76875 11 8.09944C10.6242 7.75605 10.1341 7.56468 9.625 7.5625H6.875C5.74406 7.5625 4.8125 8.49406 4.8125 9.625V10.3125H3.4375V6.1875C3.4375 5.80594 3.74344 5.5 4.125 5.5ZM6.875 8.9375H9.625C10.0066 8.9375 10.3125 9.24344 10.3125 9.625V10.3125H6.1875V9.625C6.1875 9.24344 6.49344 8.9375 6.875 8.9375ZM12.375 8.9375H15.125C15.5066 8.9375 15.8125 9.24344 15.8125 9.625V10.3125H11.6875V9.625C11.6875 9.24344 11.9934 8.9375 12.375 8.9375ZM3.4375 11.6875H18.5625C18.9441 11.6875 19.25 11.9934 19.25 12.375V17.1875H18.5625V15.8125H3.4375V17.1875H2.75V12.375C2.75 11.9934 3.05594 11.6875 3.4375 11.6875Z"
+                    fill="#73A588"
+                  />
+                </svg>
+
+                <span class="text-base text-brand-gray-3">
+                  {property.beds} Beds
+                </span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <svg
+                  class="size-[22px]"
+                  viewBox="0 0 22 22"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M17.875 2.75C16.3556 2.75 15.125 3.98062 15.125 5.5H13.75V6.875H17.875V5.5H16.5C16.5 4.68119 17.0562 4.125 17.875 4.125C18.6938 4.125 19.25 4.68119 19.25 5.5V9.625H0.6875V11H1.50425L2.55612 16.2209V16.2422C2.63597 16.5927 2.80427 16.917 3.04496 17.184C3.28566 17.4511 3.59074 17.652 3.93112 17.7677L3.4375 19.25H4.8125L5.2635 17.875H16.7365L17.1875 19.25H18.5625L18.0682 17.7677C18.788 17.5477 19.3469 16.9703 19.5078 16.2422V16.2209L20.4964 11H21.3125V9.625H20.625V5.5C20.625 3.98062 19.3944 2.75 17.875 2.75ZM2.90056 11H19.1208L18.1541 15.9631C18.0737 16.2607 17.8214 16.5 17.4666 16.5H4.598C4.2295 16.5 3.97994 16.2559 3.9105 15.9411L2.90056 11Z"
+                    fill="#73A588"
+                  />
+                </svg>
+
+                <span class="text-base text-brand-gray-3">
+                  {property.baths} Bath
+                </span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <svg
+                  class="size-[22px]"
+                  viewBox="0 0 22 22"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3.4375 3.4375V8.25H4.8125V13.75H3.4375V18.5625H8.25V17.1875H13.75V18.5625H18.5625V13.75H17.1875V8.25H18.5625V3.4375H13.75V4.8125H8.25V3.4375H3.4375ZM4.8125 4.8125H6.875V6.875H4.8125V4.8125ZM15.125 4.8125H17.1875V6.875H15.125V4.8125ZM8.25 6.1875H13.75V8.25H15.8125V13.75H13.75V15.8125H8.25V13.75H6.1875V8.25H8.25V6.1875ZM4.8125 15.125H6.875V17.1875H4.8125V15.125ZM15.125 15.125H17.1875V17.1875H15.125V15.125Z"
+                    fill="#73A588"
+                  />
+                </svg>
+
+                <span class="text-base text-brand-gray-3">{property.size}</span>
+              </div>
+            </div>
+
+            <div>
+              <p class="text-[28px]/[1.3] tracking-[1%] text-brand-dark-3">
+                {property.title}
+              </p>
+              <p class="text-lg/[1.7] text-brand-gray-3 mt-1">
+                {property.address}
+              </p>
+              <p class="text-3xl text-brand-green-3 mt-4">${property.price}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <svg
+    class="absolute top-0 left-9 -z-[1]"
+    width="631"
+    height="438"
+    viewBox="0 0 631 438"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g opacity="0.15">
+      <path
+        d="M160.425 136.066L136.055 133.407C91.62 128.56 48.9848 152.366 29.7985 192.738C20.5685 212.16 17.5219 233.947 21.0704 255.155L22.9521 266.402C33.0174 326.561 80.5508 373.469 140.837 382.737L244.88 398.733C295.403 406.5 347.083 400.624 394.573 381.713L521.908 331.006C574.995 309.866 609.265 257.859 607.748 200.737C606.242 144.063 569.817 94.2357 516.271 75.6052L462.009 56.7256C399.938 35.1289 331.069 48.0749 281.078 90.7373L266.129 103.495C236.886 128.45 198.642 140.234 160.425 136.066Z"
+        stroke="url(#paint0_linear_6_184)"
+        stroke-width="5"></path>
+      <path
+        d="M186.622 150.541L166.403 148.333C129.44 144.298 93.9739 164.104 78.0215 197.691C70.3528 213.836 67.8222 231.946 70.7712 249.576L72.3376 258.941C80.7092 308.987 120.249 348.014 170.401 355.73L256.822 369.027C298.843 375.493 341.829 370.605 381.326 354.87L487.122 312.724C531.282 295.131 559.785 251.867 558.521 204.348C557.268 157.207 526.974 115.761 482.438 100.256L437.36 84.5614C385.753 66.5943 328.488 77.3605 286.931 112.843L274.501 123.456C250.193 144.21 218.396 154.011 186.622 150.541Z"
+        stroke="url(#paint1_linear_6_184)"
+        stroke-width="4"></path>
+      <path
+        d="M214.697 171.597L197.851 169.766C167.416 166.457 138.216 182.753 125.053 210.393C118.705 223.724 116.608 238.684 119.046 253.247L120.332 260.924C127.229 302.114 159.786 334.224 201.067 340.552L272.696 351.533C307.315 356.84 342.723 352.815 375.267 339.874L462.851 305.047C499.213 290.588 522.693 254.979 521.659 215.861C520.632 177.034 495.666 142.902 458.974 130.164L421.637 117.203C379.046 102.417 331.811 111.292 297.493 140.528L287.237 149.265C267.158 166.37 240.919 174.448 214.697 171.597Z"
+        stroke="url(#paint2_linear_6_184)"
+        stroke-width="3"></path>
+      <path
+        d="M237.838 194.161L225.622 192.825C203.198 190.373 181.682 202.391 172.011 222.771C167.368 232.556 165.836 243.531 167.622 254.214L168.573 259.903C173.651 290.269 197.638 313.95 228.066 318.638L280.376 326.697C305.864 330.623 331.938 327.658 355.893 318.109L419.956 292.572C446.745 281.892 464.034 255.642 463.266 226.813C462.504 198.218 444.132 173.075 417.12 163.662L389.828 154.151C358.545 143.249 323.826 149.778 298.64 171.298L291.105 177.737C276.374 190.324 257.099 196.267 237.838 194.161Z"
+        stroke="url(#paint3_linear_6_184)"
+        stroke-width="2"></path>
+      <path
+        d="M267.953 214.802L259.8 213.91C244.834 212.274 230.475 220.295 224.021 233.896C220.921 240.427 219.899 247.751 221.091 254.881L221.726 258.678C225.115 278.944 241.124 294.749 261.431 297.877L296.342 303.256C313.353 305.876 330.754 303.897 346.742 297.524L389.497 280.481C407.376 273.354 418.914 255.834 418.402 236.594C417.893 217.51 405.632 200.73 387.604 194.447L369.39 188.1C348.512 180.824 325.341 185.181 308.532 199.544L303.503 203.841C293.672 212.241 280.808 216.208 267.953 214.802Z"
+        stroke="url(#paint4_linear_6_184)"
+        stroke-width="1.9"></path>
+    </g>
+    <defs>
+      <linearGradient
+        id="paint0_linear_6_184"
+        x1="297.635"
+        y1="27.8623"
+        x2="333.365"
+        y2="409.536"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stop-color="#EEEEEE"></stop>
+        <stop offset="0.14" stop-color="#E1E1E1"></stop>
+        <stop offset="1" stop-color="#9E9E9E"></stop>
+      </linearGradient>
+      <linearGradient
+        id="paint1_linear_6_184"
+        x1="300.695"
+        y1="60.5436"
+        x2="330.415"
+        y2="378.021"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stop-color="#EEEEEE"></stop>
+        <stop offset="0.14" stop-color="#E1E1E1"></stop>
+        <stop offset="1" stop-color="#9E9E9E"></stop>
+      </linearGradient>
+      <linearGradient
+        id="paint2_linear_6_184"
+        x1="308.86"
+        y1="97.4579"
+        x2="333.335"
+        y2="358.91"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stop-color="#EEEEEE"></stop>
+        <stop offset="0.14" stop-color="#E1E1E1"></stop>
+        <stop offset="1" stop-color="#9E9E9E"></stop>
+      </linearGradient>
+      <linearGradient
+        id="paint3_linear_6_184"
+        x1="306.982"
+        y1="139.572"
+        x2="325.01"
+        y2="332.16"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stop-color="#EEEEEE"></stop>
+        <stop offset="0.14" stop-color="#E1E1E1"></stop>
+        <stop offset="1" stop-color="#9E9E9E"></stop>
+      </linearGradient>
+      <linearGradient
+        id="paint4_linear_6_184"
+        x1="314.099"
+        y1="178.37"
+        x2="326.131"
+        y2="306.902"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stop-color="#EEEEEE"></stop>
+        <stop offset="0.14" stop-color="#E1E1E1"></stop>
+        <stop offset="1" stop-color="#9E9E9E"></stop>
+      </linearGradient>
+    </defs>
+  </svg>
+</section>

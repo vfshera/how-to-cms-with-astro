@@ -37,6 +37,7 @@ export default {
           green: {
             1: "#006c2e",
             2: "#c1fdda",
+            3: "#73A588",
           },
         },
       },
