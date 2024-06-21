@@ -34,33 +34,41 @@ function resolveOptions(opt: Option) {
 ---
 
 <div
-  class="pt-[400px] pb-[280px] bg-brand-dark-1 bg-no-repeat bg-cover bg-center relative isolate"
+  class="pt-[300px] md:pt-[400px] pb-20 md:pb-[280px] bg-brand-dark-1 bg-no-repeat bg-cover bg-center relative isolate"
   style={{ backgroundImage: `url(${hero.src})` }}
 >
-  <div class="flex flex-col items-center">
-    <p class="uppercase font-sora text-base/5 text-white">
+  <div class="flex flex-col items-center max-md:w-[95vw] max-md:mx-auto">
+    <p
+      class="uppercase font-sora text-base md:text-base/5 text-white text-center max-md:mb-2"
+    >
       Welcome to one of the best real estate agency
     </p>
     <h1
-      class="font-sora font-semibold text-[5rem]/[1.2] tracking-[2%] text-white text-center"
+      class="font-sora font-semibold text-[3rem]/[1.1] md:text-[3.5rem]/[1.2] lg:text-[4.5rem]/[1.2] xl:text-[5rem]/[1.2] tracking-[2%] text-white text-center"
     >
       Discover and Own Your <br />
-      <span class="text-brand-green-2"> Perfect Home Today!</span>
+      <span class="text-brand-green-2 max-md:block max-md:mt-5">
+        Perfect Home Today!</span
+      >
     </h1>
 
     <div
-      class="mt-9 bg-white rounded-[150px] p-3 flex items-center max-w-[1072px] w-full"
+      class="mt-9 bg-white rounded-2xl md:rounded-[150px] p-3 flex flex-col md:flex-row max-md:w-4/5 items-center xl:max-w-[1072px] gap-6 xl:gap-0 xl:w-full"
     >
-      <div class="flex items-center flex-1">
+      <div
+        class="flex flex-col md:flex-row items-center xl:flex-1 max-md:w-full"
+      >
         {
           searchFilters.map((filter, index) => (
             <>
-              {index > 0 && <span class="h-6 w-px bg-black/15 mx-6" />}
+              {index > 0 && (
+                <span class="md:h-6 w-full h-px md:w-px bg-black/15 mx-6  " />
+              )}
 
               <div>
                 <select
                   name={filter.name}
-                  class="bg-transparent p-2.5 pl-3.5 text-brand-gray-1 w-[228px]"
+                  class="bg-transparent p-2.5 pl-3.5 text-brand-gray-1 xl:w-[228px]"
                 >
                   <option value="">{filter.title}</option>
                   {filter.options.map(resolveOptions).map((opt) => (
@@ -74,7 +82,7 @@ function resolveOptions(opt: Option) {
       </div>
       <button
         type="button"
-        class="max-w-[228px] w-full flex items-center gap-2.5 justify-center bg-brand-green-2 text-brand-green-1 rounded-[50px] py-[17px]"
+        class="xl:max-w-[228px] shrink-0 xl:w-full flex items-center gap-2.5 justify-center bg-brand-green-2 text-brand-green-1 rounded-[50px] px-12 xl:px-0 py-[17px]"
       >
         <svg
           class="w-[19px] h-auto"

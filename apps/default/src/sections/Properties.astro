@@ -82,18 +82,22 @@ const USDollar = new Intl.NumberFormat("en-US", {
 });
 ---
 
-<section class="pb-[10rem] pt-[192px] relative">
+<section class="pb-24 lg:pb-[10rem] pt-20 lg:pt-[192px] relative">
   <div class="container space-y-10">
-    <div class="flex items-center justify-between">
-      <h2 class="text-[50px]/[1.2] tracking-[2%]">
+    <div
+      class="flex flex-col md:flex-row md:items-center md:justify-between max-md:gap-5"
+    >
+      <h2 class="text-[2.5rem]/[1.2] lg:text-[50px]/[1.2] tracking-[2%]">
         <span class="block text-brand-dark-2">Our Range Of Highly</span>
         <span class="block text-brand-green-3">Desired Real Estate</span>
       </h2>
 
-      <LinkButton text="more properties" />
+      <LinkButton text="more properties" class="w-max" />
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-x-[30px] gap-y-10">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-[30px] gap-y-10"
+    >
       {
         properties.map((property) => (
           <div>
@@ -158,13 +162,13 @@ const USDollar = new Intl.NumberFormat("en-US", {
             </div>
 
             <div>
-              <p class="text-[28px]/[1.3] tracking-[1%] text-brand-dark-3">
+              <p class="text-2xl/[1.4] lg:text-[28px]/[1.3] tracking-[1%] text-brand-dark-3">
                 {property.title}
               </p>
               <p class="text-lg/[1.7] text-brand-gray-3 mt-1">
                 {property.address}
               </p>
-              <p class="text-3xl text-brand-green-3 mt-4">
+              <p class="text-2xl lg:text-3xl text-brand-green-3 mt-4">
                 {USDollar.format(property.price)}
               </p>
             </div>
@@ -175,7 +179,7 @@ const USDollar = new Intl.NumberFormat("en-US", {
   </div>
 
   <svg
-    class="absolute top-0 left-9 -z-[1]"
+    class="absolute top-0 left-9 -z-[1] max-md:w-3/4 max-md:h-auto"
     width="631"
     height="438"
     viewBox="0 0 631 438"

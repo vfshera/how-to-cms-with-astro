@@ -54,11 +54,59 @@ const navlinks: Link[] = [
   data-has-bg="true"
   class="fixed top-0 left-0 w-full z-50 py-6 border-b border-white/50 text-white data-[has-bg='true']:border-transparent data-[has-bg='true']:bg-brand-dark-1"
 >
-  <div class="container flex justify-between items-center">
-    <Logo />
+  <div
+    class="container flex flex-col lg:flex-row lg:justify-between lg:items-center md:max-lg:gap-5"
+  >
+    <div class="flex items-center">
+      <Logo />
 
-    <nav>
-      <ul class="flex items-center gap-16">
+      <button
+        id="menu-toggle"
+        data-open="false"
+        class="group/toggle ml-auto md:hidden"
+      >
+        <svg
+          class="size-8 group-data-[open='true']/toggle:hidden pointer-events-none"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
+          <g id="menu_fill" fill="none" fill-rule="nonzero"
+            ><path
+              d="M24 0v24H0V0h24ZM12.593 23.258l-.011.002-.071.035-.02.004-.014-.004-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113-.013.002-.185.093-.01.01-.003.011.018.43.005.012.008.007.201.093c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.004-.011.017-.43-.003-.012-.01-.01-.184-.092Z"
+            ></path><path
+              fill="#fff"
+              d="M20 17.5a1.5 1.5 0 0 1 .144 2.993L20 20.5H4a1.5 1.5 0 0 1-.144-2.993L4 17.5h16Zm0-7a1.5 1.5 0 0 1 0 3H4a1.5 1.5 0 0 1 0-3h16Zm0-7a1.5 1.5 0 0 1 0 3H4a1.5 1.5 0 1 1 0-3h16Z"
+            ></path></g
+          ></svg
+        >
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="size-8 group-data-[open='true']/toggle:block hidden pointer-events-none"
+          viewBox="0 0 24 24"
+          ><title>close_fill</title><g
+            id="close_fill"
+            fill="none"
+            fill-rule="evenodd"
+            ><path
+              d="M24 0v24H0V0h24ZM12.593 23.258l-.011.002-.071.035-.02.004-.014-.004-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113-.013.002-.185.093-.01.01-.003.011.018.43.005.012.008.007.201.093c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.004-.011.017-.43-.003-.012-.01-.01-.184-.092Z"
+            ></path><path
+              fill="#fff"
+              d="m12 14.122 5.303 5.303a1.5 1.5 0 0 0 2.122-2.122L14.12 12l5.304-5.303a1.5 1.5 0 1 0-2.122-2.121L12 9.879 6.697 4.576a1.5 1.5 0 1 0-2.122 2.12L9.88 12l-5.304 5.304a1.5 1.5 0 1 0 2.122 2.12L12 14.123Z"
+            ></path></g
+          ></svg
+        >
+      </button>
+    </div>
+
+    <nav
+      id="main-nav"
+      data-open="false"
+      class="max-md:grid max-md:grid-rows-[0fr] max-md:data-[open='true']:pt-5 max-md:data-[open='true']:grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-in-out"
+    >
+      <ul
+        class="flex flex-col md:flex-row items-center gap-8 xl:gap-16 overflow-hidden"
+      >
         {
           navlinks.map((link) => (
             <li>
@@ -93,6 +141,11 @@ const navlinks: Link[] = [
 
 <script>
   const mainHeader = document.getElementById("main-header") as HTMLElement;
+  const menuToggle = document.getElementById(
+    "menu-toggle"
+  ) as HTMLButtonElement;
+
+  const nav = document.getElementById("main-nav") as HTMLElement;
 
   const { height } = mainHeader.getBoundingClientRect();
 
@@ -102,5 +155,13 @@ const navlinks: Link[] = [
     } else {
       mainHeader.dataset.hasBg = "false";
     }
+  });
+
+  menuToggle.addEventListener("click", () => {
+    mainHeader.dataset.hasBg = "true";
+
+    const IS_OPEN = menuToggle.getAttribute("data-open") === "true";
+    menuToggle.setAttribute("data-open", `${!IS_OPEN}`);
+    nav.setAttribute("data-open", `${!IS_OPEN}`);
   });
 </script>

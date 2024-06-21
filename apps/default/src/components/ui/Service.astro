@@ -12,9 +12,9 @@ const { background, title, description, action } = Astro.props;
 
 <div
   style={{ backgroundImage: `url(${background.src})` }}
-  class="p-[100px] pt-[340px] bg-center bg-cover bg-no-repeat space-y-8 text-white rounded-[1.25rem] relative isolate overflow-hidden"
+  class="p-10 pt-40 md:p-[100px] md:pt-[340px] bg-center bg-cover bg-no-repeat space-y-8 text-white rounded-[1.25rem] relative isolate overflow-hidden"
 >
-  <div class="flex items-center gap-6">
+  <div class="flex flex-col md:flex-row md:items-center gap-6">
     <div
       class="size-12 *:!size-6 flex items-center justify-center bg-brand-green-1 rounded-full shrink-0"
     >
@@ -23,7 +23,7 @@ const { background, title, description, action } = Astro.props;
     <p class="text-[2.5rem]/none">{title}</p>
   </div>
 
-  <p class="text-xl">{description}</p>
+  <p class="text-lg md:text-xl">{description}</p>
 
   <a
     href={action.href}
@@ -43,7 +43,7 @@ const { background, title, description, action } = Astro.props;
   </a>
 
   <div
-    class="absolute inset-0 -z-[1] bg-gradient-to-b from-transparent to-black opacity-40"
+    class="absolute inset-0 -z-[1] bg-gradient-to-b from-transparent to-black opacity-70 md:opacity-40"
   >
   </div>
 </div>

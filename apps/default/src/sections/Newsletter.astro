@@ -5,14 +5,14 @@ import signup2 from "~/assets/signup-2.png";
 ---
 
 <section>
-  <div class="grid grid-cols-2 gap-[70px]">
-    <div class="grid grid-cols-2 gap-[30px]">
+  <div class="grid grid-cols-1 xl:grid-cols-2 gap-[70px]">
+    <div class="xl:grid grid-cols-2 gap-[30px] hidden">
       <Image class="rounded-[30px]" src={signup1} alt="" />
       <Image class="rounded-[30px]" src={signup2} alt="" />
     </div>
     <div class="flex flex-col justify-center">
       <p
-        class="capitalize font-sora text-[50px] tracking-[2%] text-brand-dark-2"
+        class="capitalize font-sora text-[2.5rem]/[1.2] lg:text-[50px]/[1.2] tracking-[2%] text-brand-dark-2"
       >
         Sign up to <span class="text-brand-green-3">our <br /> newsletter</span>
       </p>
@@ -25,7 +25,7 @@ import signup2 from "~/assets/signup-2.png";
 
       <form
         id="newsletter-form"
-        class="flex items-center bg-white p-3 pl-8 w-full max-w-[564px] rounded-full shadow-[0px_2px_80px_2px_rgba(0,0,0,0.06)]"
+        class="flex items-center bg-white p-3 pl-4 md:pl-8 w-full md:max-w-[80%] xl:max-w-[564px] rounded-full shadow-[0px_2px_80px_2px_rgba(0,0,0,0.06)]"
       >
         <input
           type="email"
@@ -34,7 +34,7 @@ import signup2 from "~/assets/signup-2.png";
           required
         />
         <button
-          class="px-11 py-3 text-base/7 bg-brand-green-2 text-brand-green-1 rounded-full"
+          class="px-8 md:px-11 py-3 text-base/7 bg-brand-green-2 text-brand-green-1 rounded-full"
           >Subscribe</button
         >
       </form>

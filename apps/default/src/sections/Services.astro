@@ -7,18 +7,26 @@ import LinkButton from "~/components/ui/LinkButton.astro";
 ---
 
 <section>
-  <div class="grid grid-cols-2 gap-24">
+  <div class="grid grid-cols-1 xl:grid-cols-2 gap-24">
     <div class="space-y-24">
-      <div class="pt-[184px]">
-        <p class="capitalize text-[50px] tracking-[2%]">
-          Check <span class="text-brand-green-3">our services</span>
-        </p>
-        <p class="max-w-[564px] text-xl text-brand-gray-4 mt-[18px]">
-          Explore our comprehensive range of real estate services designed to
-          meet all your property needs with expertise and care.
-        </p>
+      <div
+        class="xl:pt-[184px] flex flex-col md:flex-row gap-5 xl:flex-col md:max-xl:justify-between md:max-xl:items-center"
+      >
+        <div>
+          <p
+            class="capitalize text-[2.5rem]/[1.2] lg:text-[50px]/[1.2] tracking-[2%]"
+          >
+            Check <span class="text-brand-green-3">our services</span>
+          </p>
+          <p class="max-w-[564px] text-xl text-brand-gray-4 mt-[18px]">
+            Explore our comprehensive range of real estate services designed to
+            meet all your property needs with expertise and care.
+          </p>
+        </div>
 
-        <LinkButton text="learn more about us" class="w-max mt-10" />
+        <div class="xl:mt-10">
+          <LinkButton text="learn more about us" class="w-max" />
+        </div>
       </div>
 
       <Service

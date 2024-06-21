@@ -54,6 +54,10 @@ export default {
           width: "100%",
           marginLeft: "auto",
           marginRight: "auto",
+          maxWidth: "95vw",
+          "@screen lg": {
+            maxWidth: "90vw",
+          },
           "@screen 2xl": {
             maxWidth: "1513px",
           },
