@@ -73,6 +73,12 @@ const properties: Property[] = [
     size: "1203 Sqft.",
   },
 ];
+
+const USDollar = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+  maximumFractionDigits: 0,
+});
 ---
 
 <section class="pb-[10rem] pt-[192px] relative">
@@ -104,7 +110,14 @@ const properties: Property[] = [
       {
         properties.map((property) => (
           <div>
-            <Image src={property.photo} alt={property.title} />
+            <div class="relative isolate">
+              <div class="absolute top-5 left-5">
+                <div class="bg-black/[.18] px-3 py-1 w-max rounded-full border border-white/80 text-white text-base/5">
+                  For Rent
+                </div>
+              </div>
+              <Image src={property.photo} alt={property.title} />
+            </div>
             <div class="flex items-center gap-6 mt-[22px]">
               <div class="flex items-center gap-1.5">
                 <svg
@@ -164,7 +177,9 @@ const properties: Property[] = [
               <p class="text-lg/[1.7] text-brand-gray-3 mt-1">
                 {property.address}
               </p>
-              <p class="text-3xl text-brand-green-3 mt-4">${property.price}</p>
+              <p class="text-3xl text-brand-green-3 mt-4">
+                {USDollar.format(property.price)}
+              </p>
             </div>
           </div>
         ))
