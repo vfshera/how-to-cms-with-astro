@@ -48,7 +48,7 @@ const faqs: { question: string; answer: string }[] = [
               aria-expanded="false"
             >
               <button type="button" class="w-full">
-                <span class="h-full w-full  pointer-events-none text-left text-2xl/7 text-brand-dark-5 flex items-center justify-between">
+                <span class="h-full w-full pointer-events-none text-left text-2xl/7 text-brand-dark-5 flex items-center justify-between">
                   {faq.question}
 
                   <div class="size-16 shrink-0 rounded-[10px] bg-brand-green-4 text-brand-green-3 flex items-center justify-center">
@@ -81,7 +81,7 @@ const faqs: { question: string; answer: string }[] = [
               </button>
               <div class="group-aria-expanded/faq:grid-rows-[1fr] grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-in">
                 <div class="overflow-hidden">
-                  <p class="pt-4">{faq.answer}</p>
+                  <p class="pt-4 text-brand-gray-3">{faq.answer}</p>
                 </div>
               </div>
             </div>
