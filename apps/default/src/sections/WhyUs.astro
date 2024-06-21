@@ -1,4 +1,6 @@
 ---
+import LinkButton from "~/components/ui/LinkButton.astro";
+
 const classes = {
   title: "text-brand-dark-2 text-3xl trackning-[2%] mt-5 mb-2.5",
   description: "text-lg text-brand-gray-3 font-light",
@@ -18,21 +20,8 @@ const classes = {
           locals, which makes us different than most trekking agencies.
         </p>
       </div>
-      <a
-        href="#"
-        class="py-4 pr-[30px] pl-8 text-base/7 text-brand-dark-2 bg-white border-brand-gray-2 group/link hover:border-black/60 transition-all duration-200 border rounded-full flex items-center"
-      >
-        More Properties <svg
-          class="size-9 group-hover/link:translate-x-1 transition-transform duration-200"
-          viewBox="0 0 35 35"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M25.8507 18.3606L19.7228 24.4885C19.626 24.5787 19.498 24.6278 19.3657 24.6254C19.2334 24.6231 19.1072 24.5695 19.0136 24.476C18.9201 24.3824 18.8665 24.2562 18.8641 24.1239C18.8618 23.9916 18.9109 23.8635 19.0011 23.7667L24.2566 18.5104H10.5107C10.3752 18.5104 10.2453 18.4566 10.1496 18.3609C10.0538 18.2651 10 18.1352 10 17.9998C10 17.8643 10.0538 17.7345 10.1496 17.6387C10.2453 17.5429 10.3752 17.4891 10.5107 17.4891H24.2566L19.0011 12.2328C18.9109 12.136 18.8618 12.008 18.8641 11.8757C18.8665 11.7434 18.9201 11.6172 19.0136 11.5236C19.1072 11.43 19.2334 11.3764 19.3657 11.3741C19.498 11.3718 19.626 11.4209 19.7228 11.5111L25.8507 17.6389C25.9463 17.7347 26 17.8644 26 17.9998C26 18.1351 25.9463 18.2649 25.8507 18.3606Z"
-            fill="#121212"></path>
-        </svg>
-      </a>
+
+      <LinkButton text="more properties" class="bg-white" />
     </div>
 
     <div
