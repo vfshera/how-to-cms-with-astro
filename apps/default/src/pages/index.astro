@@ -2,6 +2,7 @@
 import Layout from "~/layouts/Layout.astro";
 import Hero from "~/sections/Hero.astro";
 import Properties from "~/sections/Properties.astro";
+import Quote from "~/sections/Quote.astro";
 import WhyUs from "~/sections/WhyUs.astro";
 ---
 
@@ -9,4 +10,10 @@ import WhyUs from "~/sections/WhyUs.astro";
   <Hero />
   <Properties />
   <WhyUs />
+
+  <div class="py-[10rem] space-y-[10rem]">
+    <div class="container">
+      <Quote />
+    </div>
+  </div>
 </Layout>
