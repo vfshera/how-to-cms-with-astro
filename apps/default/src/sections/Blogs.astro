@@ -1,0 +1,109 @@
+---
+import LinkButton from "~/components/ui/LinkButton.astro";
+
+import blog1 from "~/assets/blog-1.png";
+import blog2 from "~/assets/blog-2.png";
+import blog3 from "~/assets/blog-3.png";
+import { Image } from "astro:assets";
+
+const posts: {
+  photo: ImageMetadata;
+  category: string;
+  date: string;
+  title: string;
+  description: string;
+}[] = [
+  {
+    photo: blog1,
+    category: "Real Estate",
+    date: "June 3, 2024",
+    title: "The Ultimate Guide To Selling Your Home Quickly",
+    description:
+      "Discover essential tips and strategies for a swift and profitable home sale in our comprehensive guide. From preparing your home and setting the right price to effective marketing.",
+  },
+  {
+    photo: blog2,
+    category: "Tip & Tricks",
+    date: "June 3, 2024",
+    title: "How To Stage Your Home For A Successful Sale",
+    description:
+      "Learn how to make your home irresistible to buyers with our expert staging tips. From decluttering and furniture placement.",
+  },
+  {
+    photo: blog3,
+    category: "Information",
+    date: "June 3, 2024",
+    title: "Investing In Real Estate: A Beginner's Guide",
+    description:
+      "Start your real estate investment journey with confidence using our beginner's guide. Explore key concepts, investment strategies.",
+  },
+];
+
+const firstPost = posts[0];
+---
+
+<section>
+  <div class="space-y-[52px]">
+    <div class="flex items-center justify-between">
+      <p class="capitalize text-[50px] tracking-[2%]">
+        Discover <span class="text-brand-green-3">our blogs</span>
+      </p>
+      <LinkButton text="Read More Blogs" />
+    </div>
+
+    <div
+      class="grid grid-cols-2 first:*:pr-24 last:*:pl-24 divide-x divide-brand-gray-5"
+    >
+      <div>
+        <div
+          class="h-[400px] w-full bg-center bg-no-repeat shrink-0 bg-cover rounded-[10px] mb-5"
+          style={{ backgroundImage: `url(${firstPost.photo.src})` }}
+        >
+        </div>
+        <div
+          class="flex items-center gap-4 text-base divide-x divide-brand-gray-7 mb-3"
+        >
+          <p class="font-semibold text-brand-green-3">
+            {firstPost.category}
+          </p>
+
+          <p class="text-brand-gray-7 pl-4">{firstPost.date}</p>
+        </div>
+
+        <p class="text-2xl/7 text-brand-dark-5">{firstPost.title}</p>
+        <p class="mt-3 tex-xl text-brand-gray-3">
+          {firstPost.description}
+        </p>
+      </div>
+      <div class="space-y-[60px]">
+        {
+          posts.slice(1).map((post, index) => (
+            <Fragment>
+              {index > 0 && <hr class="p-0  border-0 h-px bg-brand-gray-5" />}
+              <div class="flex gap-6">
+                <div
+                  class="size-[158px] bg-center bg-no-repeat shrink-0 bg-cover rounded-[10px]"
+                  style={{ backgroundImage: `url(${post.photo.src})` }}
+                />
+                <div>
+                  <div class="flex items-center gap-4 text-base divide-x divide-brand-gray-7 mb-2">
+                    <p class="font-semibold text-brand-green-3">
+                      {post.category}
+                    </p>
+
+                    <p class="text-brand-gray-7 pl-4">{post.date}</p>
+                  </div>
+
+                  <p class="text-2xl/7 text-brand-dark-5">{post.title}</p>
+                  <p class="mt-2 tex-xl text-brand-gray-3">
+                    {post.description}
+                  </p>
+                </div>
+              </div>
+            </Fragment>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
