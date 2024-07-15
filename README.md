@@ -1,4 +1,4 @@
-# Astro Realty CMS
+# How to CMS with Astro
 
 This repository showcases the integration of various CMS platforms with Astro.
 
