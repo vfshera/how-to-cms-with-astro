@@ -1,0 +1,54 @@
+---
+import { Image } from "astro:assets";
+import signup1 from "~/assets/signup-1.png";
+import signup2 from "~/assets/signup-2.png";
+---
+
+<section>
+  <div class="grid grid-cols-1 xl:grid-cols-2 gap-[70px]">
+    <div class="xl:grid grid-cols-2 gap-[30px] hidden">
+      <Image class="rounded-[30px]" src={signup1} alt="" />
+      <Image class="rounded-[30px]" src={signup2} alt="" />
+    </div>
+    <div class="flex flex-col justify-center">
+      <p
+        class="capitalize font-sora text-[2.5rem]/[1.2] lg:text-[50px]/[1.2] tracking-[2%] text-brand-dark-2"
+      >
+        Sign up to <span class="text-brand-green-3">our <br /> newsletter</span>
+      </p>
+      <p class="text-lg/7 mt-5 mb-[30px] text-brand-gray-3">
+        Mauris orci donec blandit maecenas. Orci lorem purus porttitor massa
+        consectetur. Neque, vestibulum sed varius magna et at. Eu, adipiscing
+        morbi augue justo. Nibh laoreet volutpat quis velit. Blandit aliquam
+        donec sed morbi congue eget lorem viverra porta id lobortis.
+      </p>
+
+      <form
+        id="newsletter-form"
+        class="flex items-center bg-white p-3 pl-4 md:pl-8 w-full md:max-w-[80%] xl:max-w-[564px] rounded-full shadow-[0px_2px_80px_2px_rgba(0,0,0,0.06)]"
+      >
+        <input
+          type="email"
+          placeholder="write your email address"
+          class="text-brand-gray-3 border-none focus:outline-none flex-1 placeholder:capitalize"
+          required
+        />
+        <button
+          class="px-8 md:px-11 py-3 text-base/7 bg-brand-green-2 text-brand-green-1 rounded-full"
+          >Subscribe</button
+        >
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById("newsletter-form") as HTMLFormElement;
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const formData = new FormData(form);
+    const email = formData.get("email") as string;
+    console.log("email:", email);
+  });
+</script>

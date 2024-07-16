@@ -1,0 +1,31 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import Blogs from "~/sections/Blogs.astro";
+import BottomCTA from "~/sections/BottomCTA.astro";
+import FAQ from "~/sections/FAQ.astro";
+import Hero from "~/sections/Hero.astro";
+import Newsletter from "~/sections/Newsletter.astro";
+import Properties from "~/sections/Properties.astro";
+import Quote from "~/sections/Quote.astro";
+import Services from "~/sections/Services.astro";
+import WhyUs from "~/sections/WhyUs.astro";
+import PartnersLogos from "~/sections/PartnersLogos.astro";
+---
+
+<Layout>
+  <Hero />
+  <Properties />
+  <WhyUs />
+
+  <div class="py-28 lg:py-[10rem]">
+    <div class="container space-y-24 lg:space-y-[10rem]">
+      <Quote />
+      <Services />
+      <Newsletter />
+      <FAQ />
+      <Blogs />
+      <BottomCTA />
+      <PartnersLogos />
+    </div>
+  </div>
+</Layout>

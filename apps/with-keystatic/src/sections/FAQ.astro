@@ -1,0 +1,126 @@
+---
+const faqs: { question: string; answer: string }[] = [
+  {
+    question: "How can I schedule a property viewing?",
+    answer:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at velit maximus, molestie nisl a, interdum ligula.",
+  },
+  {
+    question: "What is the process of buying a home?",
+    answer:
+      "Lorem dolor sit amet, consectetur adipiscing elit. Duis at velit maximus, molestie nisl.",
+  },
+  {
+    question: "How do you determine the value of a property?",
+    answer:
+      "consectetur adipiscing elit. Duis at velit maximus, molestie nisl a, interdum ligula.",
+  },
+  {
+    question: "What should I do to prepare my home for sale?",
+    answer: "Duis at velit maximus, molestie nisl a, interdum ligula.",
+  },
+  {
+    question: "Do you offer rental properties?",
+    answer: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem.",
+  },
+  {
+    question: "ow do you screen tenants for rental properties?",
+    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  },
+];
+---
+
+<section
+  class="bg-brand-green-4 p-8 md:p-16 xl:py-20 xl:px-[106px] rounded-[20px]"
+>
+  <div>
+    <p
+      class="text-center capitalize text-[2.5rem]/[1.2] lg:text-[50px]/[1.2] tracking-[2%] text-brand-dark-2"
+    >
+      Information you might <br />
+      <span class="text-brand-green-3">find useful</span>
+    </p>
+
+    <div class="mt-[52px] grid grid-cols-1 lg:grid-cols-2 gap-5">
+      {
+        faqs.map((faq) => (
+          <div>
+            <div
+              class="faq group/faq bg-white p-4 md:p-8 rounded-lg overflow-hidden"
+              aria-expanded="false"
+            >
+              <button type="button" class="w-full">
+                <span class="h-full w-full pointer-events-none text-left text-lg md:text-xl/7 xl:text-2xl/7  text-brand-dark-5 flex gap-5 md:items-center justify-between">
+                  {faq.question}
+
+                  <div class="size-8 md:size-12 lg:size-16 shrink-0 rounded-[10px] bg-brand-green-4 text-brand-green-3 flex items-center justify-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="size-4 md:size-6 lg:size-8 group-aria-expanded/faq:hidden block"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                        d="M12 3.25a.75.75 0 0 1 .75.75v7.25H20a.75.75 0 0 1 0 1.5h-7.25V20a.75.75 0 0 1-1.5 0v-7.25H4a.75.75 0 0 1 0-1.5h7.25V4a.75.75 0 0 1 .75-.75"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="size-4 md:size-6 lg:size-8 group-aria-expanded/faq:block hidden"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                        d="M4.85 11.25h14.302a.75.75 0 1 1 0 1.5H4.85a.75.75 0 0 1 0-1.5"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                </span>
+              </button>
+              <div class="group-aria-expanded/faq:grid-rows-[1fr] grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-in">
+                <div class="overflow-hidden">
+                  <p class="pt-4 text-brand-gray-3">{faq.answer}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  const faqs = document.querySelectorAll(".faq");
+
+  function setFAQs(expanded: "true" | "false" = "false") {
+    faqs.forEach((faq) => {
+      faq.setAttribute("aria-expanded", expanded);
+    });
+  }
+
+  faqs.forEach((faq) => {
+    const toggle = faq.querySelector("button") as HTMLButtonElement;
+
+    toggle.addEventListener("click", () => {
+      /**
+       * get expanded state
+       */
+      const IS_EXPANDED = faq.getAttribute("aria-expanded") === "true";
+
+      /**
+       * close all other accordions
+       */
+      setFAQs();
+
+      /**
+       * set expanded state
+       */
+      faq.setAttribute("aria-expanded", `${!IS_EXPANDED}`);
+    });
+  });
+</script>

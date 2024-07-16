@@ -1,0 +1,55 @@
+---
+import "@fontsource/poppins/400.css";
+import "@fontsource/poppins/500.css";
+import "@fontsource/poppins/600.css";
+import "@fontsource/poppins/700.css";
+import "@fontsource/poppins/800.css";
+
+// Supports weights 400-700
+import "@fontsource-variable/lora";
+
+import "@fontsource/bebas-neue";
+
+// Supports weights 100-900
+import "@fontsource-variable/inter";
+
+// Supports weights 100-800
+import "@fontsource-variable/sora";
+
+import "~/styles/global.css";
+
+import Footer from "~/components/Footer.astro";
+
+import { SEO } from "astro-seo";
+import type { Props as AstroSEOProps } from "astro-seo";
+
+import { site } from "~/config";
+import Navbar from "~/components/Navbar.astro";
+
+interface Props extends AstroSEOProps {}
+const CMS = "Keystatic";
+const { title, description, ...props } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <SEO
+      title={title}
+      titleDefault={`${site.title} | ${CMS}`}
+      titleTemplate={`%s - ${site.title} | ${CMS}`}
+      description={description || site.description}
+      {...props}
+    />
+  </head>
+  <body class="flex flex-col min-h-full font-sora bg-white">
+    <Navbar />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
